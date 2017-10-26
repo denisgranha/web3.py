@@ -26,6 +26,7 @@ from eth_keys.exceptions import (
 from eth_utils import (
     keccak,
     is_dict,
+    hexidecimal,
 )
 
 from web3.utils.datastructures import (
@@ -176,8 +177,8 @@ class Account(object):
         ) = sign_transaction_dict(account._key_obj, transaction_dict)
 
         return AttributeDict({
-            'rawTransaction': HexBytes(rlp_encoded),
-            'hash': HexBytes(transaction_hash),
+            'rawTransaction': hexidecimal.encode_hex(rlp_encoded),
+            'hash': hexidecimal.encode_hex(transaction_hash),
             'r': HexBytes(r),
             's': HexBytes(s),
             'v': v,
