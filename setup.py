@@ -32,7 +32,7 @@ if sys.platform == 'win32':
     install_requires.append('pypiwin32')
 
 setup(
-    name='web3',
+    name='web3_offline_signing',
     version='3.16.1',
     description="""Web3.py""",
     long_description_markdown_filename='README.md',
@@ -49,7 +49,7 @@ setup(
             "geventhttpclient>=1.3.1",
         ],
     },
-    py_modules=['web3'],
+    py_modules=['web3_offline_signing'],
     license="MIT",
     zip_safe=False,
     keywords='ethereum',
