@@ -11,6 +11,7 @@ from web3.utils.encoding import (
     hexstr_if_str,
     to_bytes,
 )
+from eth_utils import hexidecimal
 
 from web3.utils.formatters import recursive_map
 
@@ -181,7 +182,7 @@ class HexBytes(bytes):
         return super(HexBytes, cls).__new__(cls, bytesval)
 
     def hex(self):
-        return '0x' + super(HexBytes, self).hex()
+        return hexidecimal.encode_hex(self)
 
     def __repr__(self):
         return 'HexBytes(%r)' % self.hex()

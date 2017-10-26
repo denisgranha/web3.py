@@ -29,6 +29,8 @@ from eth_utils import (
     hexidecimal,
 )
 
+import binascii
+
 from web3.utils.datastructures import (
     AttributeDict,
     HexBytes,
@@ -177,8 +179,8 @@ class Account(object):
         ) = sign_transaction_dict(account._key_obj, transaction_dict)
 
         return AttributeDict({
-            'rawTransaction': hexidecimal.encode_hex(rlp_encoded),
-            'hash': hexidecimal.encode_hex(transaction_hash),
+            'rawTransaction': HexBytes(binascii.hexlify(rlp_encoded)),
+            'hash': HexBytes(binascii.hexlify(transaction_hash)),
             'r': HexBytes(r),
             's': HexBytes(s),
             'v': v,
